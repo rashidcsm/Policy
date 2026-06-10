@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover">
+  <title>গোপনীয়তা নীতি - G&S Rule</title>
+  <style>
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+    }
+
+    body {
+      background: linear-gradient(145deg, #eef2f7 0%, #d9e0e8 100%);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      min-height: 100vh;
+      padding: 5px 5px;
+      font-family: system-ui, -apple-system, 'Segoe UI', 'Noto Sans Bengali', 'SolaimanLipi', sans-serif;
+    }
+
+    /* মূল প্রাইভেসি কার্ড – 350px লাইন প্রস্থ */
+    .privacy-card {
+      max-width: 400px;
+      width: 100%;
+      margin: 0 auto;
+      background: #ffffff;
+      border-radius: 36px;
+      padding: 28px 20px 40px;
+      box-shadow: 0 20px 35px -12px rgba(0, 0, 0, 0.2), 0 1px 4px rgba(0, 0, 0, 0.05);
+      transition: transform 0.25s ease, box-shadow 0.3s ease;
+      animation: fadeSlideUp 0.6s cubic-bezier(0.2, 0.9, 0.4, 1.1);
+      
+      /* কপি প্রোটেকশন */
+      user-select: none;
+      -webkit-user-select: none;
+      -moz-user-select: none;
+      -ms-user-select: none;
+    }
+
+    .privacy-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 28px 40px -14px rgba(0, 0, 0, 0.25);
+    }
+
+    /* হেডার */
+    .privacy-header {
+      text-align: center;
+      margin-bottom: 24px;
+    }
+
+    .shield-icon {
+      font-size: 52px;
+      display: inline-block;
+      animation: gentleShield 2.5s infinite ease;
+      filter: drop-shadow(0 6px 10px rgba(25, 118, 210, 0.2));
+    }
+
+    .privacy-header h1 {
+      font-size: 26px;
+      font-weight: 700;
+      background: linear-gradient(135deg, #0d47a1, #1976d2);
+      background-clip: text;
+      -webkit-background-clip: text;
+      color: transparent;
+      margin: 12px 0 6px;
+      letter-spacing: -0.3px;
+    }
+
+    .glow-line {
+      width: 80px;
+      height: 4px;
+      background: linear-gradient(90deg, #42a5f5, #90caf9);
+      border-radius: 40px;
+      margin: 12px auto 0;
+      transition: width 0.4s ease;
+    }
+
+    .privacy-card:hover .glow-line {
+      width: 130px;
+    }
+
+    /* সব টেক্সট স্টাইল – 18px ফন্ট */
+    p, .text-block, .list-item {
+      font-size: 18px;
+      line-height: 1.68;
+      margin-bottom: 18px;
+      color: #1a2c3e;
+      font-weight: 400;
+    }
+
+    .highlight {
+      background: linear-gradient(120deg, #e3f2fd, #bbdef5);
+      padding: 2px 6px;
+      border-radius: 12px;
+      font-weight: 500;
+      color: #0b3b5e;
+    }
+
+    .section-title {
+      font-size: 20px;
+      font-weight: 700;
+      color: #0d47a1;
+      margin: 24px 0 10px;
+      border-left: 4px solid #1976d2;
+      padding-left: 14px;
+      letter-spacing: -0.2px;
+    }
+
+    .bullet-list {
+      margin: 12px 0 18px 22px;
+      list-style: none;
+    }
+
+    .bullet-list li {
+      font-size: 18px;
+      margin-bottom: 12px;
+      position: relative;
+      padding-left: 22px;
+      line-height: 1.6;
+    }
+
+    .bullet-list li::before {
+      content: "✦";
+      position: absolute;
+      left: 0;
+      color: #1976d2;
+      font-weight: bold;
+      font-size: 16px;
+    }
+
+    .permission-box {
+      background: #f0f7fc;
+      border-radius: 24px;
+      padding: 16px 18px;
+      margin: 20px 0;
+      border: 1px solid #cfe3f5;
+      transition: all 0.2s;
+    }
+
+    .permission-box:hover {
+      background: #eaf3fb;
+      transform: scale(0.98);
+    }
+
+    .permission-title {
+      font-weight: 700;
+      font-size: 18px;
+      color: #01579b;
+      margin-bottom: 8px;
+    }
+
+    .contact-email {
+      background: #ffffff;
+      border: 2px dashed #64b5f6;
+      border-radius: 60px;
+      padding: 12px 18px;
+      text-align: center;
+      margin: 24px 0 8px;
+      font-size: 18px;
+      font-weight: 500;
+      color: #0d47a1;
+      word-break: break-all;
+      transition: 0.2s;
+    }
+
+    .contact-email:hover {
+      background: #e8f0fe;
+      border: 2px solid #1976d2;
+    }
+
+    hr {
+      margin: 20px 0;
+      border: none;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, #90caf9, transparent);
+    }
+
+    /* অ্যানিমেশন */
+    @keyframes fadeSlideUp {
+      0% {
+        opacity: 0;
+        transform: translateY(22px) scale(0.96);
+      }
+      100% {
+        opacity: 1;
+        transform: translateY(0) scale(1);
+      }
+    }
+
+    @keyframes gentleShield {
+      0%, 100% { transform: translateY(0); }
+      50% { transform: translateY(-5px); }
+    }
+
+    /* মোবাইল অ্যাডজাস্ট */
+    @media (max-width: 400px) {
+      body {
+        padding: 16px 12px;
+      }
+      .privacy-card {
+        padding: 22px 16px 32px;
+      }
+      .privacy-header h1 {
+        font-size: 23px;
+      }
+      .section-title {
+        font-size: 19px;
+      }
+      p, .text-block, .bullet-list li, .contact-email {
+        font-size: 18px;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<div class="privacy-card">
+
+  <div class="privacy-header">
+    <div class="shield-icon">🛡️</div>
+    <h1>গোপনীয়তা নীতি</h1>
+    <div class="glow-line"></div>
+  </div>
+
+  <p>
+    আপনার গোপনীয়তা আমাদের কাছে গুরুত্বপূর্ণ। কখনও কখনও আমরা আপনার অনুরোধ করা সেবা প্রদানের জন্য তথ্যের প্রয়োজন হয়। এই গোপনীয়তা বিবৃতি <strong class="highlight">G&S Rule</strong> অ্যাপের ক্ষেত্রে প্রযোজ্য।
+  </p>
+
+  <div class="section-title">★ ব্যক্তিগত তথ্য</div>
+  <p>
+    ব্যক্তিগত তথ্য হল এমন ডেটা যা কোনো ব্যক্তিকে অনন্যভাবে সনাক্ত করতে বা যোগাযোগ করতে ব্যবহার করা যায়। আপনি যখন আমাদের ওয়েবসাইট বা পণ্য ভিজিট, ডাউনলোড বা আপডেট করেন, তখন আমরা <strong>কোনো ব্যক্তিগত তথ্য সংগ্রহ, সংরক্ষণ বা ব্যবহার করি না</strong> — শুধুমাত্র সেই তথ্য ব্যতীত যা আপনি ব্যবহারকারী অ্যাকাউন্ট তৈরি, ত্রুটি রিপোর্ট পাঠানো বা অনলাইন সমীক্ষা ও অন্যান্য কার্যক্রমে জমা দেন।
+  </p>
+  <p>
+    নিচের উদ্দেশ্যগুলোর জন্য আমরা আপনার জমা দেওয়া ব্যক্তিগত তথ্য ব্যবহার করতে পারি: আমাদের পণ্য ও পরিষেবা উন্নত, ডেলিভার এবং উচ্চ মানের সেবা সরবরাহ করতে; এবং আপনি যেসব অনলাইন সমীক্ষা বা কার্যক্রমে অংশ নিয়েছেন তা পরিচালনা করতে।
+  </p>
+
+  <div class="section-title">★ তৃতীয় পক্ষের সেবা</div>
+  <p>
+    অ্যাপটি তৃতীয় পক্ষের সেবা ব্যবহার করে, যারা আপনার পরিচয় শনাক্ত করতে তথ্য সংগ্রহ করতে পারে। নিচে ব্যবহৃত তৃতীয় পক্ষের সেবাগুলোর গোপনীয়তা নীতির লিংক দেওয়া হলো।
+  </p>
+
+  <div class="section-title">★ লগ ডেটা</div>
+  <p>
+    অ্যাপে কোনো ত্রুটির ক্ষেত্রে আমরা (তৃতীয় পক্ষের পণ্যের মাধ্যমে) আপনার ফোন থেকে তথ্য ও ডেটা সংগ্রহ করি, যাকে <strong class="highlight">লগ ডেটা</strong> বলা হয়। এই লগ ডেটাতে আপনার ডিভাইসের আইপি ঠিকানা, ডিভাইসের নাম, অপারেটিং সিস্টেম ভার্সন, অ্যাপ কনফিগারেশন, সেবা ব্যবহারের সময় ও তারিখ এবং অন্যান্য পরিসংখ্যান অন্তর্ভুক্ত থাকতে পারে।
+  </p>
+
+  <div class="section-title">★ বিজ্ঞাপন</div>
+  <p>
+    এই অ্যাপটি <strong>ব্যক্তিগতকৃত বিজ্ঞাপন</strong> দ্বারা সমর্থিত। নির্দিষ্ট সময়ে অ্যাপে বিজ্ঞাপন দেখতে পারে।
+  </p>
+
+  <div class="section-title">★ অনুমতি (Permissions)</div>
+  <div class="permission-box">
+    <div class="permission-title">📱 ডিভাইস আইডি</div>
+    <p style="margin-bottom: 0;">কখনও কখনও আমরা নিবন্ধিত নয় এমন ব্যক্তির ক্ষতিকর প্রবেশ রোধ করতে ব্যবহারকারীর ডিভাইস আইডি সংগ্রহ করি।</p>
+  </div>
+  <div class="permission-box">
+    <div class="permission-title">🌐 নেটওয়ার্ক সংযোগ পরীক্ষা</div>
+    <p style="margin-bottom: 0;">G&S Rule অ্যাপটি সম্পূর্ণ অনলাইন ডেটাবেসে তৈরি। তাই মোবাইল ডেটা বা ওয়াই-ফাই ছাড়া এটি পুরোপুরি কাজ করে না। অ্যাপ চালানোর সময় নিজে নিজেই ব্যবহারকারীর ডেটা সংযোগ স্বয়ংক্রিয়ভাবে পরীক্ষা করে।</p>
+  </div>
+
+  <div class="section-title">★ আমাদের সাথে যোগাযোগ</div>
+  <p>এই গোপনীয়তা নীতি সংক্রান্ত কোনো প্রশ্ন থাকলে, আপনি আমাদের সাথে যোগাযোগ করতে পারেন:</p>
+  <div class="contact-email">
+    📧 gsrule.apk@gmail.com
+  </div>
+
+  <hr>
+  <p style="font-size: 14px; text-align: center; color: #5f7f9e;">
+    সর্বশেষ হালনাগাদ: ২০২৬
+  </p>
+</div>
+
+<!-- কপি, ডান ক্লিক, সিলেক্ট বন্ধের স্ক্রিপ্ট -->
+<script>
+  (function() {
+    const container = document.querySelector('.privacy-card');
+    if (!container) return;
+
+    container.addEventListener('contextmenu', (e) => e.preventDefault());
+    container.addEventListener('copy', (e) => e.preventDefault());
+    container.addEventListener('cut', (e) => e.preventDefault());
+    container.addEventListener('selectstart', (e) => e.preventDefault());
+  })();
+</script>
+
+</body>
+</html>
